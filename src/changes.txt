@@ -1,0 +1,12 @@
+
+Switched Jasmine to run with ts-node so it can understand TypeScript directly.
+
+The --require=ts-node/register option is correctly passed (the = was the missing piece).
+
+Now Jasmine is actually able to discover and execute .ts spec files instead of complaining.
+
+✅ That covers the "Jasmine testing framework for unit testing" requirement.
+
+
+
+We created a new test file spec/resize.spec.ts using SuperTest to hit the real AP
