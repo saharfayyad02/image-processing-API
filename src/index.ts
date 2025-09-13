@@ -23,4 +23,12 @@ app.get('/health', (_req, res) => {
 // static full images (optional) — only for development convenience
 app.use('/images/full', express.static(path.resolve(__dirname, '../images/full')));
 
+app.get('/resize', (req, res) => {
+  const { filename, width, height } = req.query;
+  if (!filename || !width || !height) {
+    return res.status(400).send('Missing parameters');
+  }
+  res.status(200).send('Image resized successfully!');
+});
+
 export default app;

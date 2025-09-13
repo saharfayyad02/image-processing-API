@@ -6,9 +6,10 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
-    "test": "ts-node ./node_modules/jasmine/bin/jasmine.js"
+    "test": "jasmine --require=ts-node/register"
   },
   "keywords": [],
   "author": "",
