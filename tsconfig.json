@@ -1,8 +1,9 @@
+
 {
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -13,6 +14,6 @@
     "strict": true,
     "types": ["node", "jasmine"]
   },
-  "include": ["src"], // ✅ only compile source
-  "exclude": ["spec", "dist", "node_modules"] // ✅ skip tests
+  "include": ["src/**/*", "spec/**/*"],
+  "exclude": ["dist", "node_modules"]
 }

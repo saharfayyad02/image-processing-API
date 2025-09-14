@@ -1,12 +1,35 @@
+Summary of Test Files and Changes
 
-Switched Jasmine to run with ts-node so it can understand TypeScript directly.
+spec/endpoint.spec.ts (API / Integration Tests)
 
-The --require=ts-node/register option is correctly passed (the = was the missing piece).
+Tests the HTTP endpoints using SuperTest.
 
-Now Jasmine is actually able to discover and execute .ts spec files instead of complaining.
+Makes actual HTTP requests to the Express app, validating the full request/response cycle.
 
-✅ That covers the "Jasmine testing framework for unit testing" requirement.
+Covers:
+✅ Health check endpoint (/health)
+✅ Image resize API (/api/images)
+✅ Legacy resize endpoint (/resize)
+✅ Success scenarios (valid inputs)
+✅ Error scenarios (invalid inputs, missing parameters)
+✅ Edge cases (large numbers, decimal inputs, whitespace, concurrent requests)
+✅ HTTP method validation
+✅ 404 and 400 handling
 
+Change in index.ts:
 
+Fixed /resize endpoint to actually call resizeImage() and return the image buffer.
+Returns 404 if the source image does not exist.
+Sets correct Content-Type: image/jpeg header.
+Validates query parameters and numeric dimensions (width, height) and returns 400 for invalid inputs.
+spec/imageProcessing.spec.ts (Unit Tests)
+Tests individual functions in isolation, without HTTP layer.
+Focuses on core business logic and image processing operations.
 
-We created a new test file spec/resize.spec.ts using SuperTest to hit the real AP
+Covers:
+✅ resizeImage() function from imageService.ts
+✅ parsePositiveInt() function from validators.ts
+✅ Integration between core functions (logic pipeline)
+✅ File system operations (creating, reading, resizing images)
+✅ Image processing logic and output validation
+
