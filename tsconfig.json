@@ -1,19 +1,18 @@
-
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "rootDir": ".",
     "outDir": "dist",
+    "rootDir": ".",
+    "module": "commonjs",
+    "target": "ES2019",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "types": ["node", "jasmine"]
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "spec/**/*"],
-  "exclude": ["dist", "node_modules"]
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "node_modules","./dist","spec"
+  ]
 }

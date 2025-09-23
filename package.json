@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "ts-node src/server.ts",
+    "start": "ts-node src/server.ts",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write .",
-    "test": "jasmine --require=ts-node/register"
+    "jasmine": "jasmine --require=ts-node/register",
+    "test":"npm run build && npm run jasmine"
+
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,8 @@
   "dependencies": {
     "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "jasmine": "^5.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "morgan": "^1.10.1",
     "sharp": "^0.34.3"
   },
@@ -32,7 +35,6 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "jasmine": "^5.10.0",
     "prettier": "^3.6.2",
     "supertest": "^7.1.4",
     "ts-node": "^10.9.2",

@@ -61,4 +61,8 @@ app.get('/resize', async (req, res) => {
   }
 });
 
+export function myfun (num:number){
+  return num * num
+}
+
 export default app;
